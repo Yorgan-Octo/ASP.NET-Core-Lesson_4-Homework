@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ваша сторінка</title>
+    <style>
+        /* Загальні стилі */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Стилі для верхнього меню */
+        .top-menu {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+            .top-menu a {
+                color: #fff;
+                text-decoration: none;
+                margin: 0 15px;
+            }
+
+        /* Стилі для контейнера (бокове меню і основний вміст) */
+        .container {
+            display: flex;
+        }
+
+        /* Стилі для бокового меню */
+        .side-menu {
+            background-color: #eee;
+            padding: 10px;
+            width: 220px;
+        }
+
+            .side-menu a {
+                display: block;
+                margin: 10px 0;
+                color: #333;
+                text-decoration: none;
+            }
+
+        /* Стилі для основного вмісту */
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        /* Додайте інші стилі відповідно до ваших потреб */
+    </style>
+</head>
+<body>
+    <!-- Верхнє меню -->
+    <div class="top-menu">
+        <a href="/home/index/">Меню 1</a>
+        <a href="/home/LeftMenu/">Меню 2</a>
+    </div>
+
+    <!-- Контейнер для бокового меню і основного вмісту -->
+    <div class="container">
+        <!-- Бокове меню -->
+        @if (IsSectionDefined("SubMenu"))
+        {
+            @RenderSection("SubMenu")
+        }
+
+        <!-- Основний вміст -->
+        <div class="content">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>
